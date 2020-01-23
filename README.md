@@ -1,4 +1,9 @@
-Instructions to replicate the experimentation (using GCC in ubuntu 18.04):
+Instructions to replicate the experimentation of the GECCO2020 paper(using GCC in ubuntu 18.04):
+
+
+## For an up to date version of the methodology introduced in this paper, check out https://github.com/EtorArza/
+The licence is also available in the other repo. Please use this repo only to reproduce the results, if you want to use my work please use the up to date code on the other repo.
+
 
 ## Experiment on the behaviour of the controllers
 
