@@ -6,7 +6,7 @@ Instructions to replicate the experimentation (using GCC in ubuntu 18.04):
 
 2) execute "bash scripts/release_compile.sh"
 
-# -> Step 3.1 and 3.2 are optional, but both or none of them must be done
+### -> Step 3.1 and 3.2 are optional, but both or none of them must be done
 
     3.1) delete output_values.txt
 
