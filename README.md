@@ -3,8 +3,13 @@ Instructions to replicate the experimentation (using GCC in ubuntu 18.04):
 ## Experiment on the behaviour of the controllers
 
 1) change directory to GECCO20/analyze_output/
+    
+    cd analyze_output/
 
 2) execute "bash scripts/release_compile.sh"
+    
+    bash scripts/release_compile.sh    
+
 
 ### -> Step 3.1 and 3.2 are optional, but both or none of them must be done
 
