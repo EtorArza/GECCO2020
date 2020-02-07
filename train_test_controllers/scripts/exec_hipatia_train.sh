@@ -86,7 +86,7 @@ START_WITHOUT_HIDDEN = false
 
 
 [Controller]
-MAX_TIME_PSO = 100000.5
+MAX_TIME_PSO = 100000.5 ; modified at runtime
 POPSIZE = 20
 TABU_LENGTH = 40
 
