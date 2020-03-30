@@ -34,3 +34,4 @@ Once the file GECCO2020/train_test_controllers/result_controllers.txt has been o
 
 3) execute `python train_test_controllers/scripts/plot_square_ranking_matrix.py`
 
+## The results of the experimentation are shown in the file experimental_results.pdf
