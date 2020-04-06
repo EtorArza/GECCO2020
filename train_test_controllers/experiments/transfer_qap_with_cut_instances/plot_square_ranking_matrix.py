@@ -10,13 +10,13 @@ import fnmatch
 
 
 # save in figures local folder
-#save_fig_path = "figures/"
+save_fig_path = "figures/"
 
 # save in GECCO article dir
 import matplotlib
 matplotlib.rcParams['pdf.fonttype'] = 42
 matplotlib.rcParams['ps.fonttype'] = 42
-save_fig_path = "/home/paran/Dropbox/BCAM/02_NEAT_permus/paper/images/qap_transfer_cut/"
+#save_fig_path = "/home/paran/Dropbox/BCAM/02_NEAT_permus/paper/images/qap_transfer_cut/"
 
 
 
@@ -51,11 +51,11 @@ def xor(a, b):
 
 def order(x):
     if "0a" in x:
-        return x.split("_")[0] + "_A_" + x.split("_")[1]
+        return x.split("_")[0] + "_ZZA_" + x.split("_")[1]
     elif "sko" in x:
         return x.split("_")[0] + "_SKO_" + x.split("_")[1]
     elif "0b" in x:
-        return x.split("_")[0] + "_B_" + x.split("_")[1]
+        return x.split("_")[0] + "_ZB_" + x.split("_")[1]
     else:
         print("Error, x="+str(x)+" could not be found have sko 0a or 0b.")
         exit(1)
@@ -150,11 +150,11 @@ def rename_name(case_name, size_relevant=True, class_relevant=True):
 
     if class_relevant:
         if fnmatch.fnmatch(case_name, "*tai*a"):
-            new_name += "Taixxa"
+            new_name += "A" # Taixxa
         elif fnmatch.fnmatch(case_name, "*sko*"):
-            new_name += "Sko"
+            new_name += "C" # Sko
         elif fnmatch.fnmatch(case_name, "*tai*b"):
-            new_name += "Taixxb"
+            new_name += "B" # Taixxb
         else:
             raise Warning("tai*a, sko or tai*b not found in case name "+str(case_name))
 
@@ -180,14 +180,15 @@ def save_fig(d, fig_title, fig_path,size_relevant=True, class_relevant=True):
 
 
 
-    plt.yticks(np.arange(0.5, len(data.index), 1), yticks)
-    plt.xticks(np.arange(0.5, len(data.columns), 1), xticks, rotation = 90)
-    plt.ylabel("trained on")
-    plt.xlabel("tested on")
+    plt.yticks(np.arange(0.5, len(data.index), 1), yticks, fontsize=14)
+    plt.xticks(np.arange(0.5, len(data.columns), 1), xticks, fontsize=14)#, rotation = 90)
+    plt.ylabel("trained on", fontsize=14)
+    plt.xlabel("tested on", fontsize=14)
+    plt.colorbar()
     #plt.title("(average - RS) / (BK - RS)")
     #plt.title("normalized, gaussian smoothing, sigma = 0.7")
     #plt.title("rankings on test instances")
-    plt.title(fig_title)
+    plt.title(fig_title, fontsize=17)
     plt.tight_layout()
     plt.savefig(fig_path)
     plt.close()
@@ -232,7 +233,7 @@ sko_instances = [ins for ins in all_instances if "sko" in ins]
 
 save_fig(d, "All normalized scores", save_fig_path+"all_norm.pdf", True, True) #all
 save_fig(d.loc[small_instances,small_instances], "Small instances", save_fig_path+"small.pdf", False, True) # small instances
-save_fig(d.loc[big_instances,big_instances], "Large instances", save_fig_path+"large.pdf", False, True) # small instances
+save_fig(d.loc[big_instances,big_instances], "Normalized average performance", save_fig_path+"large.pdf", False, True) # small instances
 save_fig(d.loc[taia_instances,taia_instances], "taia_instances", save_fig_path+"taia_instances.pdf", True, False) # taia instances
 save_fig(d.loc[taib_instances,taib_instances], "taib_instances", save_fig_path+"taib_instances.pdf", True, False) # taib instances
 save_fig(d.loc[sko_instances,sko_instances], "sko_instances", save_fig_path+"sko_instances.pdf", True, False) # sko instances
